@@ -41,9 +41,9 @@
       
       
         .logomarca img {
-            max-width: 49%;
-            height: auto;
-            margin-left: -229px;
+                   max-width: 20%;
+        height: auto;
+        margin-left: -451px;
         }
     }
 
@@ -337,6 +337,7 @@
       .botoes{
         display: flex;
         color: #16224E;
+        margin-bottom: -25px;
 
       }
      
@@ -547,6 +548,7 @@
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         transition: opacity 0.3s, transform 0.3s;
         text-align: center;
+        bottom: 103px;
       }
       
       .container {
@@ -594,9 +596,9 @@
         font-size: 11px;
         margin: auto;
         font-weight: bold;
-        margin-top: -40px;
+        margin-top: -53px;
         padding-bottom: 10p;
-        margin-bottom: 27px;
+        margin-bottom: 33px;
       
           }
         button:hover{
@@ -610,6 +612,7 @@
         .botoes{
             display: flex;
             color: #16224E;
+            margin-bottom: -25px;
            
         }
         .nos1{
