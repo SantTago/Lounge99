@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Andreia Gomes</title>
+  <link rel="icon" href="caminho/para/seu-favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="#" onclick="scrollToSection('home')" >Home</a>
+    <a href="#" onclick="scrollToSection('sobre')">Sobre</a>
+    <a href="#" onclick="scrollToSection('servicos')" >Soluções</a>
+    <a href="#" onclick="scrollToSection('contato')" >Contato</a>
+    <a href="#" onclick="closeMenu()">&larr;</a>
+  </div>
+  <!-- Cabeçalho -->
+  <header class="logomarca">
+    <div class="open-btn" onclick="toggleMenu()">&#9776;</div>
+    <div class="titulo">
+      <img src="img/logo.png" alt="Andreia-gomes">
+    </div>
+    
+  
+    <nav class="header-menu">
+      <a href="#" onclick="scrollToSection('home')">Home</a>
+      <a href="#" onclick="scrollToSection('sobre1')">Sobre</a>
+      <a href="#" onclick="scrollToSection('servicos')">Soluçôes</a>
+      <a href="#" onclick="scrollToSection('contato')" >Contato</a>
+    </nav>
+  </header>
+
+  <main>
+      <section class="desktop-img">
+        <img class="img" src="img/sub-logo-G.jpg" alt="grande-logo">
+      </section>
+    
+      <!-- Imagem para telas pequenas -->
+      <section class="mobile-img" id="home">
+        <img class="img" src="img/sub-logo.jpg" alt="sub-logo">
+      </section>
+
+      <!--
+    <div class="botoes" >
+        <button>ABRIR EMPRESA</button>
+        <button>MIGRAR EMPRESA</button>
+        <button>MIGRAR EMPRESA</button>
+    </div>
+    -->
+
+    <section class="desktop-img" id="sobre1"> 
+      <img class="img" src="img/sobre-nos.jpg" alt="grande-logo">
+    </section>
+  
+    <!-- Imagem para telas pequenas -->
+    <section class="mobile-img" id="sobre">
+      <img class="img" id="img" src="img/sub-sobre.jpg" alt="sub-logo">
+    </section>
+
+   
+
+    <span  class="mobile-img ">
+        <h2 class="nos">Sobre o Lounge99</h2>
+        <br>
+        <h2 class="nosso-foco">
+          Desfrute de sabores <br>
+          com excelência e <br>
+          praticidade
+      </h2>
+        <h3 class="somos">No Lounge99, a excelência é nossa marca registrada. Localizado à beira-mar, oferecemos uma experiência gastronômica única, onde cada refeição é preparada com ingredientes frescos e cuidado artesanal. Nossa equipe de chefs talentosos está comprometida em proporcionar sabores excepcionais em cada prato, desde petiscos irresistíveis até deliciosos pratos principais. Além da comida de alta qualidade, nosso serviço impecável e ambiente acolhedor garantem momentos memoráveis para todos os nossos clientes.
+
+          Venha nos visitar e desfrute do melhor da gastronomia à beira-mar no Lounge99. Estamos prontos para recebê-lo e tornar sua experiência conosco inesquecível.</h3>
+
+    </span>
+
+    <section class="mobile-img" id="sobre">
+      <img class="img" id="img" src="img/cardapio.jpg" alt="sub-logo">
+    </section>
+
+    <div class="botoes" >
+      <button>Ver cardápio completo</button>
+    </div>
+
+  <section class="mobile-img" id="foto-ovo">
+    <img class="img" id="img" src="img/prato com ovo.jpg" alt="sub-logo">
+  </section>
+  <section class="mobile-img" id="foto-ovo">
+    <img class="img" id="img" src="img/drinks.jpg" alt="sub-logo">
+  </section>
+
+  <div class="botoes" >
+    <button>Ver cardápio completo</button>
+  </div>
+
+  <section id="servicos">
+      <img  class="img"  id="img2" src="img/historia.jpg" alt="sub-logo">
+  </section>
+  <span  class="mobile-img ">
+    <h2 class="nos">História do Lounge99</h2>
+    <br>
+    <h3 class="somos">No Lounge99, a excelência é nossa marca registrada. Localizado à beira-mar, oferecemos uma experiência gastronômica única, onde cada refeição é preparada com ingredientes frescos e cuidado artesanal. Nossa equipe de chefs talentosos está comprometida em proporcionar sabores excepcionais em cada prato, desde petiscos irresistíveis até deliciosos pratos principais. Além da comida de alta qualidade, nosso serviço impecável e ambiente acolhedor garantem momentos memoráveis para todos os nossos clientes.
+
+      Venha nos visitar e desfrute do melhor da gastronomia à beira-mar no Lounge99. Estamos prontos para recebê-lo e tornar sua experiência conosco inesquecível.</h3>
+
+</span>
+
+
+  <section class="bloco1">
+
+    <div class="bloco" onclick="mostrarPopup('Diagnóstico Organizacional');">
+      <img onclick="openWindow1()" class="redondo" src="img/icon-soluçoes.png" alt="1°">
+      <h2>Diagnóstico <br>
+        Organizacional</h2>
+    </div>
+
+    <div class="bloco" onclick="mostrarPopup('Implantações de HR');">
+      <img onclick="openWindow2()" class="redondo" src="img/icon-soluçoes.png" alt="2°">
+      <h2>Implantações <br>
+        de RH</h2>
+    </div>
+
+    <div class="bloco" onclick="mostrarPopup('Clima Organizacional');">
+      <img onclick="openWindow3()" class="redondo" src="img/icon-soluçoes.png" alt="3°">
+      <h2>Clima <br>
+        Organizacional</h2>
+    </div>
+
+    <div class="bloco" onclick="mostrarPopup('Consultoria em RH');">
+      <img onclick="openWindow4()" class="redondo" src="img/icon-soluçoes.png" alt="4°">
+      <h2>Consultoria <br>
+        em RH</h2>
+    </div>
+
+    <div class="bloco" onclick="mostrarPopup('Recrutamento e Seleção');">
+      <img onclick="openWindow5()" class="redondo" src="img/icon-soluçoes.png" alt="5°">
+      <h2>Recrutamento <br>
+        e Seleção</h2>
+    </div>
+
+    <div class="bloco" onclick="mostrarPopup('Treinamento Comportamental');">
+      <img onclick="openWindow6()" class="redondo" src="img/icon-soluçoes.png" alt="6°">
+      <h2>Treinamento <br>
+        Comportamental</h2>
+    </div>
+
+    <div class="bloco" onclick="mostrarPopup('Elaboração de Currículo');">
+      <img onclick="openWindow7()" class="redondo" src="img/icon-soluçoes.png" alt="6°">
+      <h2>Elaboração <br>
+        de Currículo</h2>
+    </div>
+
+    <div class="bloco" onclick="mostrarPopup('Divulgação de Vagas de emprego');">
+      <img onclick="openWindow8()" class="redondo" src="img/icon-soluçoes.png" alt="6°">
+      <h2>Divulgação de <br>
+        Vagas de emprego</h2>
+    </div>
+
+  </section>
+
+  <script>
+    // Função para abrir janela flutuante com título e conteúdo
+    function openWindow1() {
+        var title = "Diagnóstico Organizacional";
+        var content = " ";
+        content += "O diagnóstico organizacional é uma análise detalhada da estrutura, processos, clima organizacional,  ";
+        content += "conformidade legal e desempenho dos colaboradores de uma empresa. Essa avaliação ajuda a  ";
+        content += "identificar áreas de melhoria e oportunidades de otimização. Em contabilidade e RH, isso significa ";
+        content += "entender como esses departamentos estão funcionando e onde podem ser feitas melhorias para ";
+        content += "aumentar a eficiência e o desempenho organizacional. ";
+
+        var windowContent = `
+            <div class="window-container" onclick="closeWindow()">
+                <div class="window" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="closeWindow()">X</span>
+                    <h2>${title}</h2>
+                    <p>${content}</p>
+                </div>
+            </div>
+        `;
+
+        var newWindow = document.createElement('div'); 
+        newWindow.innerHTML = windowContent; 
+        document.body.appendChild(newWindow); 
+        newWindow.querySelector('.window-container').style.display = 'block'; 
+    }
+
+
+    function openWindow2() {
+        var title = "Implantações de HR";
+        var content = "A implantação de RH envolve introduzir práticas, políticas e sistemas de RH na organização. Isso inclui ";
+        content += "A implantação de RH envolve introduzir práticas, políticas e sistemas de RH na organização. Isso inclui ";
+        content += "criar processos, estabelecer políticas, implementar tecnologia, treinar funcionários e garantir uma ";
+        content += "avaliação contínua. O objetivo é garantir uma transição suave e eficaz para novas práticas de gestão de ";
+        content += "pessoas.";
+        var windowContent = `
+            <div class="window-container" onclick="closeWindow()">
+                <div class="window" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="closeWindow()">X</span>
+                    <h2>${title}</h2>
+                    <p>${content}</p>
+                </div>
+            </div>
+        `;
+
+        var newWindow = document.createElement('div');
+        newWindow.innerHTML = windowContent;
+        document.body.appendChild(newWindow); 
+        newWindow.querySelector('.window-container').style.display = 'block'; 
+    }
+
+    function openWindow3() {
+        var title = "Clima Organizacional";
+        var content = "O clima organizacional se refere ao ambiente de trabalho em uma empresa, incluindo a cultura, as  ";
+        content += "relações interpessoais e a satisfação dos funcionários. É como as pessoas se sentem ao trabalhar lá.  ";
+        content += "Um bom clima organizacional promove a motivação, a produtividade e a retenção de talentos,  ";
+        content += "enquanto um clima negativo pode levar a baixo desempenho e alta rotatividade. Manter um clima  ";
+        content += "organizacional saudável é essencial para o sucesso de qualquer empresa.";
+        var windowContent = `
+            <div class="window-container" onclick="closeWindow()">
+                <div class="window" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="closeWindow()">X</span>
+                    <h2>${title}</h2>
+                    <p>${content}</p>
+                </div>
+            </div>
+        `;
+
+        var newWindow = document.createElement('div'); 
+        newWindow.innerHTML = windowContent; 
+        document.body.appendChild(newWindow); 
+        newWindow.querySelector('.window-container').style.display = 'block';
+    }
+
+    function openWindow4() {
+        var title = "Consultoria em RH";
+        var content = "A consultoria em RH oferece suporte especializado para otimizar as práticas de recursos humanos em  ";
+        content += "uma empresa. Isso inclui recrutamento, treinamento, gestão de desempenho, políticas de remuneração  ";
+        content += "e gestão de mudanças. Para a contabilidade e recursos humanos da Andreia Gomes, isso significa ter  ";
+        content += "acesso a orientações precisas e eficazes para lidar com questões relacionadas às pessoas,  ";
+        content += "fortalecendo tanto os departamentos de contabilidade quanto de RH.";
+        var windowContent = `
+            <div class="window-container" onclick="closeWindow()">
+                <div class="window" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="closeWindow()">X</span>
+                    <h2>${title}</h2>
+                    <p>${content}</p>
+                </div>
+            </div>
+        `;
+
+        var newWindow = document.createElement('div'); 
+        newWindow.innerHTML = windowContent;
+        document.body.appendChild(newWindow); 
+        newWindow.querySelector('.window-container').style.display = 'block'; 
+    }
+
+    function openWindow5() {
+        var title = "Recrutamento e Seleção";
+        var content = "O recrutamento e seleção são processos fundamentais para encontrar e contratar talentos que se  ";
+        content += "encaixem nas necessidades da empresa. Isso envolve atrair candidatos qualificados, avaliar suas  ";
+        content += "habilidades e experiência, e escolher os melhores para as vagas disponíveis. Com um recrutamento e   ";
+        content += "seleção eficazes, a empresa pode garantir que tenha uma equipe talentosa e bem alinhada com seus   ";
+        content += "objetivos e cultura organizacional.";
+        var windowContent = `
+            <div class="window-container" onclick="closeWindow()">
+                <div class="window" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="closeWindow()">X</span>
+                    <h2>${title}</h2>
+                    <p>${content}</p>
+                </div>
+            </div>
+        `;
+
+        var newWindow = document.createElement('div'); 
+        newWindow.innerHTML = windowContent; 
+        document.body.appendChild(newWindow); 
+        newWindow.querySelector('.window-container').style.display = 'block'; 
+    }
+
+    function openWindow6() {
+        var title = "Treinamento Comportamental";
+        var content = "O treinamento comportamental é uma parte essencial do desenvolvimento dos funcionários, focado   ";
+        content += "em melhorar habilidades e comportamentos específicos. Isso inclui treinamentos para comunicação   ";
+        content += "eficaz, liderança, trabalho em equipe, resolução de conflitos, entre outros. O objetivo é promover um   ";
+        content += "ambiente de trabalho mais produtivo e colaborativo, capacitando os colaboradores para lidar com   ";
+        content += "desafios de forma eficaz e desenvolver habilidades que contribuam para o sucesso da empresa.";
+        var windowContent = `
+            <div class="window-container" onclick="closeWindow()">
+                <div class="window" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="closeWindow()">X</span>
+                    <h2>${title}</h2>
+                    <p>${content}</p>
+                </div>
+            </div>
+        `;
+
+        var newWindow = document.createElement('div');
+        newWindow.innerHTML = windowContent; 
+        document.body.appendChild(newWindow); 
+        newWindow.querySelector('.window-container').style.display = 'block'; 
+    }
+
+    function openWindow7() {
+        var title = "Elaboração de Currículo";
+        var content = "A elaboração de currículo é uma parte crucial do processo de busca por emprego. Envolve criar um   ";
+        content += "documento que destaque as habilidades, experiências e qualificações de um candidato de forma clara   ";
+        content += "e atrativa para os empregadores. Isso inclui informações como histórico acadêmico, experiência   ";
+        content += "profissional, habilidades técnicas e soft skills. Um bom currículo deve ser adaptado para cada vaga   ";
+        content += "específica, destacando os pontos que são mais relevantes para o cargo almejado.";
+        var windowContent = `
+            <div class="window-container" onclick="closeWindow()">
+                <div class="window" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="closeWindow()">X</span>
+                    <h2>${title}</h2>
+                    <p>${content}</p>
+                </div>
+            </div>
+        `;
+
+        var newWindow = document.createElement('div'); 
+        newWindow.innerHTML = windowContent; 
+        document.body.appendChild(newWindow); 
+        newWindow.querySelector('.window-container').style.display = 'block'; 
+    }
+
+    function openWindow8() {
+        var title = "Divulgação de Vagas de emprego";
+        var content = "A divulgação de vagas de emprego é o processo de compartilhar oportunidades de trabalho  ";
+        content += "disponíveis com potenciais candidatos. Isso pode ser feito através de diversos canais, como sites de  ";
+        content += "emprego, redes sociais, grupos profissionais, agências de recrutamento, entre outros. O objetivo é   ";
+        content += "alcançar o maior número possível de candidatos qualificados e interessados na vaga, garantindo assim  ";
+        content += "um processo seletivo eficaz e a contratação do profissional mais adequado para a posição.";
+        var windowContent = `
+            <div class="window-container" onclick="closeWindow()">
+                <div class="window" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="closeWindow()">X</span>
+                    <h2>${title}</h2>
+                    <p>${content}</p>
+                </div>
+            </div>
+        `;
+
+        var newWindow = document.createElement('div'); 
+        newWindow.innerHTML = windowContent; 
+        document.body.appendChild(newWindow); 
+        newWindow.querySelector('.window-container').style.display = 'block'; 
+    }
+
+
+    // Função para fechar a janela
+    function closeWindow() {
+        var windowContainer = document.querySelector('.window-container');
+        windowContainer.remove(); // Remova a janela
+    }
+
+    // Função para fechar a janela ao clicar fora dela
+    window.addEventListener('click', function(event) {
+        if (event.target.classList.contains('window-container')) {
+            closeWindow();
+        }
+    });
+</script>
+
+  </main>
+
+  <footer id="contato">
+    <h2>Contato</h2>
+  </footer>
+
+  <form action="andreiamarciany@hotmail.com" method="post" enctype="text/plain">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" required></textarea>
+    <input type="submit" value="Enviar">
+  </form>
+
+  <footer class="contato">
+    <div class="footer-container">
+      <div class="footer-item">
+        <a href="https://wa.me/5588996523108" target="_blank"><img src="img/icon-zap.png" alt="WhatsApp"></a>
+      </div>
+      <div class="footer-item">
+        <a href="https://www.instagram.com/ag_contabiildaderh/" target="_blank"><img src="img/icon-instagram.png" alt="Instagram"></a>
+      </div>
+      <div class="footer-item">
+        <a href="andreiamarciany@hotmail.com" target="_blank"><img src="img/icon-gmail.png" alt="Email"></a>
+      </div>
+      <div class="footer-item">
+        <a href="https://maps.app.goo.gl/uoq3wxX5yuftYqPCA" target="_blank"><img src="img/icon-localização.png" alt="localização"></a>
+      </div>
+    </div>
+    <div class="footer-address">
+      Endereço: R. Carlos Trévia, 2163 - Camocim Ceara - 2024
+    </div>
+    <div class="footer-copyright">
+      © 2024 Todos os direitos reservados
+    </div>
+  </footer>
+  
+
+
+  <script>
+    var menuAberto = false;
+
+    function toggleMenu() {
+      var sidebar = document.getElementById('sidebar');
+
+      if (!menuAberto) {
+        sidebar.style.left = '0px';
+        menuAberto = true;
+      } else {
+        sidebar.style.left = '-200px';
+        menuAberto = false;
+      }
+    }
+
+    function closeMenu() {
+      var sidebar = document.getElementById('sidebar');
+      sidebar.style.left = '-200px';
+      menuAberto = false;
+    }
+
+    document.addEventListener('click', function (event) {
+      var sidebar = document.getElementById('sidebar');
+      if (!event.target.closest('.open-btn') && !event.target.closest('.sidebar')) {
+        sidebar.style.left = '-200px';
+        menuAberto = false;
+      }
+    });
+
+    // Adiciona evento de clique ao ícone do menu para mostrar as opções no modo PC
+    var openBtn = document.querySelector('.open-btn');
+    var headerMenu = document.querySelector('.header-menu');
+
+    openBtn.addEventListener('click', function() {
+      headerMenu.classList.toggle('menu-opened');
+    });
+  </script>
+ <div id="btnTopo" onclick="scrollTopFunction()" title="Voltar ao Topo">^</div>
+  <!------script da rolagem------------------------->
+  <script src="script.js"></script>
+  <script>
+    function scrollToSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    var sectionPosition = section.offsetTop;
+    window.scrollTo({
+        top: sectionPosition,
+        behavior: 'smooth' // Isso garante uma rolagem suave
+    });
+}
+  </script>
+  <!---------------------botao top da tela ---------------------------------------->
+  <script>
+    function scrollTopFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Mostrar ou ocultar botão "Voltar ao Topo" conforme a posição do scroll
+    window.onscroll = function() {
+        var btnTopo = document.getElementById("btnTopo");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            btnTopo.style.display = "block";
+        } else {
+            btnTopo.style.display = "none";
+        }
+    };
+  </script>
+</body>
+</html>
