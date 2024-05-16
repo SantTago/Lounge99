@@ -234,17 +234,17 @@
 
     /* Estilos para a barra lateral (menu) */
     .sidebar {
-      width: 177px;
-      height: 52vh;
-      background-color: #081439;
+      width: 189px;
+      height: 77vh;
+      background-color: #000000;
       position: absolute;
-      top: 74px;
+      top: 56px;
       left: -200px;
       overflow-x: hidden;
-      padding-top: 20px;
+      padding-top: 23px;
       transition: 1.0s;
       z-index: 2;
-      border-radius: 0px  0px;
+      border-radius: 0px 0px;
     }
  
 
@@ -270,7 +270,7 @@
     .open-btn {
         font-size: 35px;
         cursor: pointer;
-        color: #081439;
+        color: #000000;
         position: absolute;
         left: 16px;
         z-index: 3;
@@ -359,34 +359,31 @@
       .bloco1 {
         display: inline-block;
         text-align: center;
-        columns: 4;
-        margin: 0px 85px 0px 85px;
-    
+        /* height: 100%; */
+        margin-bottom: -47px;
+        padding-bottom: 33px;
       }
-      .bloco{
+      .bloco {
         display: inline-block;
         text-align: center;
-        padding: 10px;
-        border-radius: 27px;
         box-shadow: 1px 2px 0px black;
         margin: 7px;
+        background-color: #ED3237;
       }
       .bloco:hover{
         background-color: #16224E;
         color: #EAEAEA;
         display: inline-block;
         text-align: center;
-        padding: 3px;
-        border-radius: 27px;
         box-shadow: 1px 2px 0px #16224E;
         transition: 0.380s;
        
       }
       
-      .redondo{
-        width: 200px;
-        height: 200px;
-        border-radius: 50px;
+      .redondo {
+        width: 124px;
+        height: 141px;
+        /* border-radius: 50px; */
         padding: 10px;
         padding-bottom: 10px;
       }
@@ -481,7 +478,7 @@
       }
 
       .contato{
-        margin-top: 40px;
+        margin-top: -3px;
       
       }
       
@@ -528,6 +525,9 @@
 
 
     @media only screen and (max-width: 768px) {
+      #equipe{
+        background-color: #F5E5CF;
+      }
       #btnTopo {
         font-size: 28px;
         width: 66px;
@@ -538,7 +538,7 @@
         z-index: 99;
         border: none;
         outline: none;
-        background-color: #16224E;
+        background-color: #000000;
         color: white;
         cursor: pointer;
         padding: 4px;
@@ -612,6 +612,11 @@
             color: #16224E;
            
         }
+        .nos1{
+          text-align: center;
+          color: #000000;
+          margin-top: 23px;
+      }
     
         .nos{
             text-align: center;
@@ -636,38 +641,37 @@
             font-family: math;
             margin-bottom: 48px;
         }
-        .bloco1{
+        .bloco1 {
           display: inline-block;
           text-align: center;
-  
-        }
-        .bloco{
+          /* height: 100%; */
+          margin-bottom: -47px;
+          padding-bottom: 33px;
+      }
+        .bloco {
           display: inline-block;
           text-align: center;
-          padding: 10px;
-          border-radius: 27px;
           box-shadow: 1px 2px 0px black;
           margin: 7px;
-        }
+          background-color: #ED3237;
+      }
         .bloco:hover{
-          background-color: #16224E;
+          background-color: #000000;
           color: #EAEAEA;
           display: inline-block;
           text-align: center;
-          padding: 15px;
-          border-radius: 27px;
-          box-shadow: 1px 2px 0px #16224E;
+          box-shadow: 1px 2px 0px #000000;
           transition: 0.380s;
          
         }
         
-        .redondo{
-          width: 100px;
-          height: 100px;
-          border-radius: 50px;
+        .redondo {
+          width: 124px;
+          height: 141px;
+          /* border-radius: 50px; */
           padding: 10px;
           padding-bottom: 10px;
-        }
+      }
         
         .bloco > h2{
           text-align: center;
@@ -760,13 +764,13 @@
         }
 
         .contato{
-          margin-top: 40px;
+          margin-top: -3px;
         
         }
         
 
         footer {
-          background: linear-gradient(to right, #16224E, #192552);
+          background: linear-gradient(to right, #ED3237, #8d070c);
           color: #fff;
           padding: 20px 0;
           text-align: center;
