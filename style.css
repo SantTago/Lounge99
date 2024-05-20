@@ -38,6 +38,12 @@
     }
 
     @media only screen and (min-width: 768px) {
+      .botoes {
+        display: flex;
+        color: #16224E;
+        margin-bottom: -25px;
+        justify-content: center;
+    }
       #equipe {
         background-color: #F5E5CF;
     }
@@ -67,17 +73,19 @@
           width: 148px;
           height: 33px;
           border: 2px;
-          color: #ffffff;
           background-color: #ED3237;
           border-radius: 50px;
-          font-size: 11px;
           margin: auto;
-          font-weight: bold;
           margin-top: -53px;
           padding-bottom: 10p;
           margin-bottom: 33px;
-        
-            }
+          }
+          button > a{
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 11px;
+            color: #ffffff;
+          }
           button:hover{
               background-color: #000000;
               color: white;
@@ -379,25 +387,6 @@
 
       }
      
-      button {
-        width: 148px;
-        height: 33px;
-        border: 2px;
-        color: #ffffff;
-        background-color: #ED3237;
-        border-radius: 50px;
-        font-size: 11px;
-        margin: auto;
-        font-weight: bold;
-        margin-top: -53px;
-        padding-bottom: 10p;
-        margin-bottom: 33px;
-      
-          }
-        button:hover{
-            background-color: #000000;
-            color: white;
-        }
       .bloco1 {
         display: inline-block;
         text-align: center;
@@ -570,6 +559,34 @@
 
 
     @media only screen and (max-width: 768px) {
+      button {
+        width: 148px;
+        height: 33px;
+        border: 2px;
+        background-color: #ED3237;
+        border-radius: 50px;
+        margin: auto;
+        margin-top: -53px;
+        padding-bottom: 10p;
+        margin-bottom: 33px;
+        }
+        button > a{
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 11px;
+          color: #ffffff;
+        }
+        button:hover{
+            background-color: #000000;
+            color: white;
+        }
+
+       .botoes {
+        display: flex;
+        color: #16224E;
+        margin-bottom: -25px;
+        justify-content: center;
+    }
       
       .ovo-pc{
         display: none;
