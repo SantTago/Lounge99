@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cardápio do Restaurante</title>
+  <link rel="icon" href="caminho/para/seu-favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <style>
+     body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background-color: #ED3237;
+      }
+      h1 {
+          margin-top: 20px;
+          text-align: center;
+      }
+      #pdf-viewer {
+          width: 90%;
+          max-width: 600px;
+          margin-bottom: 20px;
+      }
+      .pdf-page {
+        width: 100%;
+        padding-top: -10px;
+        margin-top: 2px;
+      }
+      #controls {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      button {
+          
+          background-color: #000000;
+          color: white;
+          border: none;
+          cursor: pointer;
+          font-size: 16px;
+          margin: 0 5px;
+      }
+      button:hover {
+          background-color: #353535;
+      }
+      .slick-prev, .slick-next {
+          font-size: 0;
+          line-height: 0;
+          position: absolute;
+          top: 50%;
+          display: block;
+          width: 20px;
+          height: 20px;
+          padding: 0;
+          -webkit-transform: translate(0, -50%);
+          -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          cursor: pointer;
+          color: transparent;
+          border: none;
+          outline: none;
+          background: transparent;
+      }
+      .slick-prev:hover, .slick-next:hover, .slick-prev:focus, .slick-next:focus {
+          color: transparent;
+          outline: none;
+          background: transparent;
+      }
+      .slick-prev:hover:before, .slick-next:hover:before, .slick-prev:focus:before, .slick-next:focus:before {
+          opacity: 1;
+      }
+      .slick-prev:before, .slick-next:before {
+          font-family: 'slick';
+          font-size: 40px;
+          line-height: 1;
+          opacity: 0.75;
+          color: black;
+      }
+      .slick-prev {
+          left: -25px;
+      }
+      .slick-next {
+          right: -25px;
+      }
+      @media (max-width: 600px) {
+          #pdf-viewer {
+              width: 100%;
+          }
+      }
+  </style>
+</head>
+<body>
+    <section class="desktop-img">
+        <img class="img" src="img/banner.jpg" alt="grande-logo">
+      </section>
+      <section class="mobile-img" id="home">
+        <img class="img" src="img/sub-logo1.jpg" alt="sub-logo">
+      </section>
+   
+    <div id="pdf-viewer" class="slick-carousel">
+       
+        <div><img src="cardapio/2.jpg" class="pdf-page" alt="Página 2"></div>
+        <div><img src="cardapio/3.jpg" class="pdf-page" alt="Página 3"></div>
+        <div><img src="cardapio/4.jpg" class="pdf-page" alt="Página 4"></div>
+        <div><img src="cardapio/5.jpg" class="pdf-page" alt="Página 5"></div>
+        <div><img src="cardapio/6.jpg" class="pdf-page" alt="Página 6"></div>
+        <div><img src="cardapio/7.jpg" class="pdf-page" alt="Página 7"></div>
+        <div><img src="cardapio/8.jpg" class="pdf-page" alt="Página 8"></div>
+        <div><img src="cardapio/9.jpg" class="pdf-page" alt="Página 9"></div>
+        <div><img src="cardapio/10.jpg" class="pdf-page" alt="Página 10"></div>
+    
+    </div>
+    <div id="controls">
+        <button onclick="goBack()">Voltar</button>
+        <button onclick="downloadPDF()">Baixar Cardápio</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        const pdfUrl = 'CARDÁPIO-LOUNGE99.pdf';
+
+        $(document).ready(function(){
+            $('.slick-carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                prevArrow: '<button type="button" class="slick-prev">&#10094;</button>',
+                nextArrow: '<button type="button" class="slick-next">&#10095;</button>'
+            });
+        });
+
+        function downloadPDF() {
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = 'cardapio.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

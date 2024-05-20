@@ -38,17 +38,55 @@
     }
 
     @media only screen and (min-width: 768px) {
-      
-      
-        .logomarca img {
-                   max-width: 20%;
-        height: auto;
-        margin-left: -451px;
-        }
+      #equipe {
+        background-color: #F5E5CF;
+    }
+    .bloco1 {
+      display: inline-block;
+      text-align: center;
+      /* height: 100%; */
+      margin-bottom: -44px;
+      padding-bottom: 36px;
+      width: 100%;
+      /* margin-top: 13px; */
+      padding-top: 45px;
+  }
+      .nos{
+        display: none;
+    }
+     
+    .logomarca img {
+      padding: 5px;
+      max-width: 23%;
+      height: auto;
+      margin-left: -375px;
+  }
+
+
+        button {
+          width: 148px;
+          height: 33px;
+          border: 2px;
+          color: #ffffff;
+          background-color: #ED3237;
+          border-radius: 50px;
+          font-size: 11px;
+          margin: auto;
+          font-weight: bold;
+          margin-top: -53px;
+          padding-bottom: 10p;
+          margin-bottom: 33px;
+        
+            }
+          button:hover{
+              background-color: #000000;
+              color: white;
+          }
     }
 
     /* Estilos para dispositivos móveis (largura máxima de 768px) */
     @media only screen and (max-width: 768px) {
+      
       .logomarca img {
         max-width: 29%;
         height: auto;
@@ -289,10 +327,10 @@
     .header-menu > a {
       text-decoration: none;
       color: #000320;
-      padding: 10px;
+      padding: 15px;
       font-size: larger;
       font-weight: bold;
-    }
+  }
     .header-menu a:hover{
       color: #ffffff;
     }
@@ -342,21 +380,24 @@
       }
      
       button {
-        position: relative;
-        width: 164px;
-        height: 44px;
-        border: 2px #16224E solid;
+        width: 148px;
+        height: 33px;
+        border: 2px;
+        color: #ffffff;
+        background-color: #ED3237;
         border-radius: 50px;
         font-size: 11px;
-        margin: 10px;
-        left: 60px;
-        top: -16px;
-        font-weight: 900;
-      }
-      button:hover{
-          background-color: #16224E;
-          color: white;
-      }
+        margin: auto;
+        font-weight: bold;
+        margin-top: -53px;
+        padding-bottom: 10p;
+        margin-bottom: 33px;
+      
+          }
+        button:hover{
+            background-color: #000000;
+            color: white;
+        }
       .bloco1 {
         display: inline-block;
         text-align: center;
@@ -372,7 +413,7 @@
         background-color: #ED3237;
       }
       .bloco:hover{
-        background-color: #16224E;
+        background-color: #000000;
         color: #EAEAEA;
         display: inline-block;
         text-align: center;
@@ -485,7 +526,7 @@
       
 
       footer {
-        background: linear-gradient(to right, #16224E, #192552);
+        background: linear-gradient(to right, #ED3237, #8d070c);
         color: #fff;
         padding: 20px 0;
         text-align: center;
@@ -521,11 +562,19 @@
       #img2{
         margin-bottom: 40px;
       }
+      #historia{
+        display: none;
+      }
     }
   
 
 
     @media only screen and (max-width: 768px) {
+      
+      .ovo-pc{
+        display: none;
+      }
+
       #equipe{
         background-color: #F5E5CF;
       }
