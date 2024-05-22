@@ -14,65 +14,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!--base dos likes-->
-    <script src="https://unpkg.com/@supabase/supabase-js"></script>
 </head>
 <body>
-
-  <h1>Like System</h1>
-  <button id="likeButton">Like</button>
-  <p>Likes: <span id="likeCount">0</span></p>
-
-  <script>
-      // Configurações do Supabase
-      const SUPABASE_URL = 'https://vuhfjrwdqdfeevgpbkjl.supabase.co';
-      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ1aGZqcndkcWRmZWV2Z3Bia2psIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY0Mjc4OTYsImV4cCI6MjAzMjAwMzg5Nn0.lPaZnx0uKrOKXPHMJj_mfqobIdfkr7Ys5FmLwMd8cEU';
-
-      const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-      async function fetchLikes() {
-          const { data, error } = await supabase
-              .from('likes')
-              .select('count')
-              .eq('id', 1)
-              .single();
-
-          if (data) {
-              document.getElementById('likeCount').textContent = data.count;
-          } else if (error) {
-              console.error('Erro ao buscar likes:', error);
-          }
-      }
-
-      async function incrementLikes() {
-          const { data, error } = await supabase
-              .from('likes')
-              .update({ count: supabase.raw('count + 1') })
-              .eq('id', 1);
-
-          if (data) {
-              fetchLikes();
-          } else if (error) {
-              console.error('Erro ao incrementar likes:', error);
-          }
-      }
-
-      document.getElementById('likeButton').addEventListener('click', incrementLikes);
-
-      // Inicializar a contagem de likes
-      fetchLikes();
-
-      // Subscrição para atualizações em tempo real
-      supabase
-          .from('likes:id=eq.1')
-          .on('UPDATE', payload => {
-              document.getElementById('likeCount').textContent = payload.new.count;
-          })
-          .subscribe();
-  </script>
-
-
-
 
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
@@ -220,36 +163,36 @@
  
   <!-- Adicione este script após a tag <body> -->
  <script>
-  $(document).ready(function(){
-    const slider = $('.slider');
- 
-    slider.slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        prevArrow: '<button class="slick-prev">Anterior</button>',
-        nextArrow: '<button class="slick-next">Próximo</button>',
-        autoplay: true, // Ativar o autoplay
-        autoplaySpeed: 2000, // Intervalo de tempo em milissegundos (2 segundos)
- 
-        responsive: [
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1
-                }
-            }
-        ]
-    });
- 
-    // Parar o autoplay ao clicar em uma imagem
-    slider.on('click', '.slick-slide', function() {
-        slider.slick('slickPause'); // Parar o carrossel
-        setTimeout(function() {
-            slider.slick('slickPlay'); // Retomar o carrossel após 5 segundos
-        }, 5000); // Tempo em milissegundos (5 segundos)
-    });
- });
- 
+ $(document).ready(function(){
+  const slider = $('.slider');
+
+  slider.slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      prevArrow: false, // Remover botão de anterior
+      nextArrow: false, // Remover botão de próximo
+      autoplay: true, // Ativar o autoplay
+      autoplaySpeed: 2000, // Intervalo de tempo em milissegundos (2 segundos)
+
+      responsive: [
+          {
+              breakpoint: 600,
+              settings: {
+                  slidesToShow: 1
+              }
+          }
+      ]
+  });
+
+  // Parar o autoplay ao clicar em uma imagem
+  slider.on('click', '.slick-slide', function() {
+      slider.slick('slickPause'); // Parar o carrossel
+      setTimeout(function() {
+          slider.slick('slickPlay'); // Retomar o carrossel após 5 segundos
+      }, 5000); // Tempo em milissegundos (5 segundos)
+  });
+});
+
  </script>
  <hr class="linha-horizontal">
  
