@@ -14,8 +14,65 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    <!--base dos likes-->
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
 </head>
 <body>
+
+  <h1>Like System</h1>
+  <button id="likeButton">Like</button>
+  <p>Likes: <span id="likeCount">0</span></p>
+
+  <script>
+      // Configurações do Supabase
+      const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+      const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+      const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      async function fetchLikes() {
+          const { data, error } = await supabase
+              .from('likes')
+              .select('count')
+              .eq('id', 1)
+              .single();
+
+          if (data) {
+              document.getElementById('likeCount').textContent = data.count;
+          } else if (error) {
+              console.error('Erro ao buscar likes:', error);
+          }
+      }
+
+      async function incrementLikes() {
+          const { data, error } = await supabase
+              .from('likes')
+              .update({ count: supabase.raw('count + 1') })
+              .eq('id', 1);
+
+          if (data) {
+              fetchLikes();
+          } else if (error) {
+              console.error('Erro ao incrementar likes:', error);
+          }
+      }
+
+      document.getElementById('likeButton').addEventListener('click', incrementLikes);
+
+      // Inicializar a contagem de likes
+      fetchLikes();
+
+      // Subscrição para atualizações em tempo real
+      supabase
+          .from('likes:id=eq.1')
+          .on('UPDATE', payload => {
+              document.getElementById('likeCount').textContent = payload.new.count;
+          })
+          .subscribe();
+  </script>
+
+
+
 
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
