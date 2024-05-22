@@ -24,7 +24,7 @@
     <a href="#" onclick="scrollToSection('cardapio')" >cardápio</a>
     <a href="#" onclick="scrollToSection('drinks')" >drinks </a>
     <a href="#" onclick="scrollToSection('historia')" >Historia</a>
-    <a href="#" onclick="scrollToSection('equipe')" >Equipe</a>
+   <!-- <a href="#" onclick="scrollToSection('equipe')" >Equipe</a>-->
     <a href="#" onclick="scrollToSection('localizaçao')" >Localização</a> 
     <a href="#" onclick="scrollToSection('contato')" >contato</a> 
     <a href="#" onclick="closeMenu()">&larr;</a>
@@ -43,20 +43,48 @@
       <a href="#" onclick="scrollToSection('scardapio')">cardápio</a>
       <a href="#" onclick="scrollToSection('drinks')" >drinks</a>
       <a href="#" onclick="scrollToSection('historia')" >Historia</a>
-      <a href="#" onclick="scrollToSection('equipe')" >Equipe</a>
+      <!-- <a href="#" onclick="scrollToSection('equipe')" >Equipe</a>-->
       <a href="#" onclick="scrollToSection('localizaçao')" >Localização</a>
       <a href="#" onclick="scrollToSection('contato')" >contato</a> 
     </nav>
   </header>
 
+  
+
   <main>
-      <section class="desktop-img">
+      <section class="desktop-img" >
         <img class="img" src="img/banner.jpg" alt="grande-logo">
       </section>
       <section class="desktop-img">
         <img class="img" src="img/sobre.jpg" alt="grande-logo">
       </section>
     
+
+      <section class="slider" id="carro">
+    
+        <div class="product">
+          <img src="pratos/1.jpg" alt="bebe">
+        </div>
+     
+        <div class="product">
+          <img src="pratos/2.jpg" alt="bebe">
+        </div>
+     
+        <div class="product">
+          <img src="pratos/3.jpg" alt="bebe">
+        </div>
+     
+        <div class="product">
+          <img src="pratos/4.jpg" alt="bebe">  
+        </div>
+     
+        <div class="product">
+          <img src="pratos/5.jpg" alt="bebe"> 
+        </div>
+        
+      </section>
+
+
       <!-- Imagem para telas pequenas -->
       <section class="mobile-img" id="home">
         <img class="img" src="img/sub-logo.jpg" alt="sub-logo">
@@ -74,6 +102,8 @@
       <img class="img" src="img/cardapio-G.jpg" alt="grande-logo">
     </section>
   
+  
+
     <!-- Imagem para telas pequenas -->
     <section class="mobile-img" id="sobre">
       <img class="img" id="img" src="img/sub-sobre.jpg" alt="sub-logo">
@@ -95,6 +125,83 @@
 
     </span>
 
+    
+    <!--------------------------------------------------------------->
+    <style>
+      img {
+       max-width: 100%;
+       height: auto;
+       width: 100%;
+     
+     }
+ 
+     </style>
+  <section class="slider" id="carrosel">
+    
+    <div class="product">
+      <img src="pratos/1.jpg" alt="bebe">
+    </div>
+ 
+    <div class="product">
+      <img src="pratos/2.jpg" alt="bebe">
+    </div>
+ 
+    <div class="product">
+      <img src="pratos/3.jpg" alt="bebe">
+    </div>
+ 
+    <div class="product">
+      <img src="pratos/4.jpg" alt="bebe">  
+    </div>
+ 
+    <div class="product">
+      <img src="pratos/5.jpg" alt="bebe"> 
+    </div>
+    
+  </section>
+ 
+ 
+  <!-- Adicione este script após a tag <body> -->
+ <script>
+  $(document).ready(function(){
+    const slider = $('.slider');
+ 
+    slider.slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        prevArrow: '<button class="slick-prev">Anterior</button>',
+        nextArrow: '<button class="slick-next">Próximo</button>',
+        autoplay: true, // Ativar o autoplay
+        autoplaySpeed: 2000, // Intervalo de tempo em milissegundos (2 segundos)
+ 
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+ 
+    // Parar o autoplay ao clicar em uma imagem
+    slider.on('click', '.slick-slide', function() {
+        slider.slick('slickPause'); // Parar o carrossel
+        setTimeout(function() {
+            slider.slick('slickPlay'); // Retomar o carrossel após 5 segundos
+        }, 5000); // Tempo em milissegundos (5 segundos)
+    });
+ });
+ 
+ </script>
+ <hr class="linha-horizontal">
+ 
+ 
+  <!--------------------------------------------------->
+
+ 
+    
+
     <section class="mobile-img" id="cardapio">
       <img class="img" id="img"  src="img/cardapio.jpg" alt="sub-logo">
     </section>
@@ -105,6 +212,69 @@
   <section class="mobile-img" id="foto-ovo">
     <img class="img" id="img" src="img/prato com ovo.jpg" alt="sub-logo">
   </section>
+<!--------------------------------------------------->
+  <section class="slider" id="carrosel">
+    
+    <div class="product">
+      <img src="drinks- fotos/1.jpg" alt="bebe">
+    </div>
+ 
+    <div class="product">
+      <img src="drinks- fotos/2.jpg" alt="bebe">
+    </div>
+ 
+    <div class="product">
+      <img src="drinks- fotos/3.jpg" alt="bebe">
+    </div>
+ 
+    <div class="product">
+      <img src="drinks- fotos/4.jpg" alt="bebe">  
+    </div>
+ 
+    <div class="product">
+      <img src="drinks- fotos/5.jpg" alt="bebe"> 
+    </div>
+    
+  </section>
+ 
+ 
+  <!-- Adicione este script após a tag <body> -->
+ <script>
+  $(document).ready(function(){
+    const slider = $('.slider');
+ 
+    slider.slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        prevArrow: '<button class="slick-prev">Anterior</button>',
+        nextArrow: '<button class="slick-next">Próximo</button>',
+        autoplay: true, // Ativar o autoplay
+        autoplaySpeed: 2000, // Intervalo de tempo em milissegundos (2 segundos)
+ 
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+ 
+    // Parar o autoplay ao clicar em uma imagem
+    slider.on('click', '.slick-slide', function() {
+        slider.slick('slickPause'); // Parar o carrossel
+        setTimeout(function() {
+            slider.slick('slickPlay'); // Retomar o carrossel após 5 segundos
+        }, 5000); // Tempo em milissegundos (5 segundos)
+    });
+ });
+ 
+ </script>
+ <hr class="linha-horizontal">
+ 
+ 
+  <!--------------------------------------------------->
 
   <section  id="drinks" class="mobile-img" id="foto-ovo">
     <img class="img" id="img" src="img/drinks.jpg" alt="sub-logo">
@@ -118,13 +288,42 @@
     <button><a href="drinks.html">Ver cardápio completo </a>  </button>
   </div>
 
+  <section class="slider" id="carro">
+    
+    <div class="product">
+      <img src="drinks- fotos/1.jpg" alt="bebe">
+    </div>
+ 
+    <div class="product">
+      <img src="drinks- fotos/2.jpg" alt="bebe">
+    </div>
+ 
+    <div class="product">
+      <img src="drinks- fotos/3.jpg" alt="bebe">
+    </div>
+ 
+    <div class="product">
+      <img src="drinks- fotos/4.jpg" alt="bebe">  
+    </div>
+ 
+    <div class="product">
+      <img src="drinks- fotos/5.jpg" alt="bebe"> 
+    </div>
+    
+  </section>
+
   <section  id="drinks" class="ovo-pc">
     <img class="img" id="img" src="img/historia-pc.jpg" alt="sub-logo">
   </section>
 
+
+
   <section id="servicos" >
       <img id="historia"  class="img"  id="img2" src="img/historia.jpg" alt="sub-logo">
   </section>
+
+  
+
   <span  class="mobile-img ">
     <h2 class="nos" >História do Lounge99</h2>
     <br>
@@ -134,7 +333,7 @@
 
 </span>
 
-
+<!--
   <section id="equipe" class="bloco1" id="equipe">
 
     <span  class="mobile-img ">
@@ -173,7 +372,7 @@
     
 
   </section>
-
+-->
   </main>
 
   <footer id="contato" >

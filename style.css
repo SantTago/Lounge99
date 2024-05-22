@@ -554,11 +554,17 @@
       #historia{
         display: none;
       }
+      #carrosel{
+        display: none;
+      }
     }
   
 
 
     @media only screen and (max-width: 768px) {
+      #carro{
+        display: none;
+      }
       button {
         width: 148px;
         height: 33px;
