@@ -528,21 +528,22 @@
 
   <!----------------visitantes--------------->
   <script type="module">
-    // Import the functions you need from the SDKs you need
+    // Importar as funções necessárias do SDK que você precisa
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-    import { getDatabase, ref, onValue, set, get, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
+    import { getDatabase, ref, get, set, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
 
-    // Your web app's Firebase configuration
+    // Configuração do Firebase do seu novo projeto
     const firebaseConfig = {
-        apiKey: "AIzaSyCcUxqUGSC-GTZxLLPb75Wf6xDx15w3VpQ",
-        authDomain: "lounge99-ad4b0.firebaseapp.com",
-        projectId: "lounge99-ad4b0",
-        storageBucket: "lounge99-ad4b0.appspot.com",
-        messagingSenderId: "155566160515",
-        appId: "1:155566160515:web:8b68f16f9db86e1b75f9b6"
+      apiKey: "AIzaSyBH2qc7CvWfz0-h9novg6WNFDZ0LtdouDM",
+      authDomain: "lounge-1787a.firebaseapp.com",
+      databaseURL: "https://lounge-23e37-default-rtdb.firebaseio.com",
+      projectId: "lounge-1787a",
+      storageBucket: "lounge-1787a.appspot.com",
+      messagingSenderId: "337163678535",
+      appId: "1:337163678535:web:d5faa3b3c4d6a3e1edd262"
     };
 
-    // Initialize Firebase
+    // Inicializar o Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
     const numeroRef = ref(database, 'numeroAtual');
@@ -559,6 +560,7 @@
                 atualizarNumero(snapshot.val());
             } else {
                 set(numeroRef, 0); // Defina o número inicial aqui
+                atualizarNumero(0);
             }
         });
 
@@ -574,9 +576,9 @@
     function atualizarNumeroAutomaticamente() {
         setInterval(() => {
             runTransaction(numeroRef, (numeroAtual) => {
-                return (numeroAtual || 0) - 1; // Defina o número inicial aqui
+                return (numeroAtual || 0) + 1; // Incrementa o número a partir de 0
             });
-        }, 525000);
+        }, 525000); // 25000 milissegundos = 25 segundos
     }
 
     // Chamar a função para iniciar a contagem quando a página carrega
@@ -585,6 +587,5 @@
         atualizarNumeroAutomaticamente();
     });
 </script>
-<!--25000-->
 </body>
 </html>
