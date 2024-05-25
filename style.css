@@ -284,7 +284,7 @@
       height: 77vh;
       background-color: #000000;
       position: absolute;
-      top: 56px;
+      top: 85px;
       left: -200px;
       overflow-x: hidden;
       padding-top: 23px;
@@ -360,11 +360,7 @@
       .sidebar{
         display: none;
       }
-      #btnTopo {
-        display: none;
-        background-color: #16224E ;
-        color: #16224E ;
-      }
+      
 
       .mobile-img {
         display: none; /* Esconde a imagem para telas grandes */
