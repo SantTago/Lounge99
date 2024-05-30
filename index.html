@@ -529,64 +529,72 @@
   </script>
 
   <!----------------visitantes--------------->
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-    import { getDatabase, ref, onValue, set, get, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
+   <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+        import { getDatabase, ref, onValue, set, get, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
 
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyCcUxqUGSC-GTZxLLPb75Wf6xDx15w3VpQ",
-        authDomain: "lounge99-ad4b0.firebaseapp.com",
-        projectId: "lounge99-ad4b0",
-        storageBucket: "lounge99-ad4b0.appspot.com",
-        messagingSenderId: "155566160515",
-        appId: "1:155566160515:web:8b68f16f9db86e1b75f9b6"
-    };
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCcUxqUGSC-GTZxLLPb75Wf6xDx15w3VpQ",
+            authDomain: "lounge99-ad4b0.firebaseapp.com",
+            projectId: "lounge99-ad4b0",
+            storageBucket: "lounge99-ad4b0.appspot.com",
+            messagingSenderId: "155566160515",
+            appId: "1:155566160515:web:8b68f16f9db86e1b75f9b6"
+        };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-    const numeroRef = ref(database, 'numeroAtual');
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const numeroRef = ref(database, 'numeroAtual');
 
-    // Função para atualizar o número na página
-    function atualizarNumero(numero) {
-        document.getElementById('numero').innerText = numero;
-    }
+        // Função para atualizar o número na página
+        function atualizarNumero(numero) {
+            document.getElementById('numero').innerText = numero;
+        }
 
-    // Função para iniciar a contagem
-    function iniciarContagem() {
-        get(numeroRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                atualizarNumero(snapshot.val());
-            } else {
-                set(numeroRef, 0); // Defina o número inicial aqui
-            }
-        });
-
-        // Ouvir atualizações em tempo real
-        onValue(numeroRef, (snapshot) => {
-            if (snapshot.exists()) {
-                atualizarNumero(snapshot.val());
-            }
-        });
-    }
-
-    // Função para incrementar o número a cada 25 segundos
-    function atualizarNumeroAutomaticamente() {
-        setInterval(() => {
-            runTransaction(numeroRef, (numeroAtual) => {
-                return (numeroAtual || 1) + 1; // Defina o número inicial aqui
+        // Função para iniciar a contagem
+        function iniciarContagem() {
+            get(numeroRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    atualizarNumero(snapshot.val());
+                } else {
+                    set(numeroRef, 0); // Defina o número inicial aqui
+                }
             });
-        }, 555525000);
-    }
 
-    // Chamar a função para iniciar a contagem quando a página carrega
-    document.addEventListener('DOMContentLoaded', () => {
-        iniciarContagem();
-        atualizarNumeroAutomaticamente();
-    });
-</script>
+            // Ouvir atualizações em tempo real
+            onValue(numeroRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    atualizarNumero(snapshot.val());
+                }
+            });
+        }
+
+        // Função para incrementar o número ao carregar a página
+        function incrementarNumeroAoCarregarPagina() {
+            runTransaction(numeroRef, (numeroAtual) => {
+                return (numeroAtual || 0) + 1; // Incrementa o número atual em 1
+            });
+        }
+
+        // Função para incrementar o número a cada 25 segundos
+        function atualizarNumeroAutomaticamente() {
+            setInterval(() => {
+                runTransaction(numeroRef, (numeroAtual) => {
+                    return (numeroAtual || 0) + 1; // Incrementa o número atual em 1
+                });
+            }, 555525000); // Intervalo em milissegundos
+        }
+
+        // Chamar as funções quando a página carrega
+        document.addEventListener('DOMContentLoaded', () => {
+            iniciarContagem();
+            incrementarNumeroAoCarregarPagina();
+            atualizarNumeroAutomaticamente();
+        });
+    </script>
 <!--25000-->
 </body>
 </html>
