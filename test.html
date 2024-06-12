@@ -147,21 +147,34 @@
             const currentScroll = videosContainer.scrollLeft;
             const videoWidth = videosContainer.querySelector('.video').offsetWidth;
             const targetScroll = currentScroll + (direction * videoWidth);
+
             videosContainer.scrollTo({
                 left: targetScroll,
                 behavior: 'smooth'
             });
 
-            // Reproduzir o vídeo que está visível na tela
-            const currentVideo = document.querySelector('.videos-container .video:nth-of-type(' + (Math.round((videosContainer.scrollLeft + window.innerWidth / 2) / videoWidth) + 1) + ') video');
-            currentVideo.play();
+            setTimeout(() => {
+                const videoElements = Array.from(videosContainer.querySelectorAll('.video'));
+                const middleScreen = videosContainer.scrollLeft + videosContainer.offsetWidth / 2;
+                
+                let visibleVideo;
+                videoElements.forEach(videoElement => {
+                    const videoStart = videoElement.offsetLeft;
+                    const videoEnd = videoStart + videoWidth;
+                    if (middleScreen >= videoStart && middleScreen <= videoEnd) {
+                        visibleVideo = videoElement.querySelector('video');
+                    }
+                });
 
-            // Pausar os outros vídeos
-            videos.forEach(video => {
-                if (video !== currentVideo) {
-                    video.pause();
+                if (visibleVideo) {
+                    visibleVideo.play();
+                    videos.forEach(video => {
+                        if (video !== visibleVideo) {
+                            video.pause();
+                        }
+                    });
                 }
-            });
+            }, 300); // Tempo de delay para a rolagem suave
         }
     </script>
 </body>
