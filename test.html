@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .videos-container {
+            display: flex;
+            overflow-x: hidden; /* Ocultar barra de rolagem horizontal */
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .video {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            margin-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: relative;
+        }
+
+        .video video {
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto;
+        }
+
+        @media (max-width: 600px) {
+            .videos-container {
+                flex-wrap: nowrap;
+                touch-action: pan-y;
+                -webkit-overflow-scrolling: touch;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                white-space: nowrap;
+            }
+
+            .video {
+                flex: 0 0 auto;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .video {
+                width: 20%;
+            }
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="videos-container">
+        <div class="video">
+            <video controls>
+                <source src="videos/1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video">
+            <video controls>
+                <source src="videos/2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video">
+            <video controls>
+                <source src="videos/3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video">
+            <video controls>
+                <source src="videos/4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video">
+            <video controls>
+                <source src="videos/5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video">
+            <video controls>
+                <source src="videos/6.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <button onclick="scrollVideos(-1)">Anterior</button>
+        <button onclick="scrollVideos(1)">Próximo</button>
+    </div>
+
+    <script>
+        const videos = document.querySelectorAll('.video video');
+
+        videos.forEach(video => {
+            video.addEventListener('play', (event) => {
+                videos.forEach(otherVideo => {
+                    if (otherVideo !== event.target) {
+                        otherVideo.pause();
+                    }
+                });
+            });
+        });
+
+        function scrollVideos(direction) {
+            const videosContainer = document.querySelector('.videos-container');
+            const currentScroll = videosContainer.scrollLeft;
+            const videoWidth = videosContainer.querySelector('.video').offsetWidth;
+            const targetScroll = currentScroll + (direction * videoWidth);
+            videosContainer.scrollTo({
+                left: targetScroll,
+                behavior: 'smooth'
+            });
+
+            // Reproduzir o vídeo que está visível na tela
+            const currentVideo = document.querySelector('.videos-container .video:nth-of-type(' + (Math.round((videosContainer.scrollLeft + window.innerWidth / 2) / videoWidth) + 1) + ') video');
+            currentVideo.play();
+
+            // Pausar os outros vídeos
+            videos.forEach(video => {
+                if (video !== currentVideo) {
+                    video.pause();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
