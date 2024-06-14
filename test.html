@@ -55,11 +55,15 @@
                 width: 100%;
                 height: auto;
             }
+
+            .navigation-buttons {
+                display: flex;
+            }
         }
 
         @media (min-width: 601px) {
             .video {
-                width: 20%;
+                display: none;
             }
         }
 
@@ -71,6 +75,12 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 1;
+        }
+
+        @media (min-width: 601px) {
+            .navigation-buttons {
+                display: none;
+            }
         }
 
         button {
@@ -153,29 +163,44 @@
                 behavior: 'smooth'
             });
 
-            setTimeout(() => {
-                const videoElements = Array.from(videosContainer.querySelectorAll('.video'));
-                const middleScreen = videosContainer.scrollLeft + videosContainer.offsetWidth / 2;
-                
-                let visibleVideo;
-                videoElements.forEach(videoElement => {
-                    const videoStart = videoElement.offsetLeft;
-                    const videoEnd = videoStart + videoWidth;
-                    if (middleScreen >= videoStart && middleScreen <= videoEnd) {
-                        visibleVideo = videoElement.querySelector('video');
+            setTimeout(checkVisibleVideo, 300); // Tempo de delay para a rolagem suave
+        }
+
+        function checkVisibleVideo() {
+            const videosContainer = document.querySelector('.videos-container');
+            const videoElements = Array.from(videosContainer.querySelectorAll('.video'));
+            const middleScreen = videosContainer.scrollLeft + videosContainer.offsetWidth / 2;
+            const videoWidth = videoElements[0].offsetWidth;
+            
+            let visibleVideo;
+            videoElements.forEach(videoElement => {
+                const videoStart = videoElement.offsetLeft;
+                const videoEnd = videoStart + videoWidth;
+                if (middleScreen >= videoStart && middleScreen <= videoEnd) {
+                    visibleVideo = videoElement.querySelector('video');
+                }
+            });
+
+            if (visibleVideo) {
+                visibleVideo.play();
+                videos.forEach(video => {
+                    if (video !== visibleVideo) {
+                        video.pause();
                     }
                 });
-
-                if (visibleVideo) {
-                    visibleVideo.play();
-                    videos.forEach(video => {
-                        if (video !== visibleVideo) {
-                            video.pause();
-                        }
-                    });
-                }
-            }, 300); // Tempo de delay para a rolagem suave
+            }
         }
+
+        // Detecta quando a rolagem termina
+        const videosContainer = document.querySelector('.videos-container');
+        let isScrolling;
+        videosContainer.addEventListener('scroll', () => {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(checkVisibleVideo, 300);
+        });
+
+        // Check initial visible video
+        checkVisibleVideo();
     </script>
 </body>
 </html>
